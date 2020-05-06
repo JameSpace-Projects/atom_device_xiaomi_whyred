@@ -26,15 +26,26 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, device/xiaomi/whyred/device.mk)
 
 # Inherit from custom vendor
-$(call inherit-product, vendor/xiaomi/MiuiCamera/config.mk)
+$(call inherit-product, vendor/MiuiCamera/config.mk)
 
-# Inherit Carbon product configuration
-$(call inherit-product, vendor/carbon/config/common.mk)
+# Inherit AtomOS product configuration
+$(call inherit-product, vendor/aosp/config/common.mk)
 
-# Inherit Carbon GSM telephony parts
-$(call inherit-product, vendor/carbon/config/gsm.mk)
+# Inherit AtomOS GSM telephony parts
+#$(call inherit-product, vendor/carbon/config/gsm.mk)
 
-PRODUCT_NAME := carbon_whyred
+# Dirac
+$(call inherit-product, vendor/dirac/dirac.mk)
+
+# Welcome in Gapps word!
+TARGET_GAPPS_ARCH := arm64
+IS_PHONE := true
+TARGET_BOOT_ANIMATION_RES := 1080
+
+# AtomOS build type
+CUSTOM_BUILD_TYPE := OFFICIAL
+
+PRODUCT_NAME := aosp_whyred
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := whyred
 PRODUCT_MANUFACTURER := Xiaomi
